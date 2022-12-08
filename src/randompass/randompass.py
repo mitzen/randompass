@@ -5,8 +5,8 @@ import secrets
 
 class SimplePassword(Resource):
 
-    def get(self):
-        pwdgenerator = RandomPasswordGenerator().generate_password()
+    def get(self, passwordLength: int = 20):
+        pwdgenerator = RandomPasswordGenerator().generate_password(passwordLength)
         return jsonify(pwdgenerator)
 
 class RandomPasswordGenerator:
